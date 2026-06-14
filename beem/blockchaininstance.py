@@ -846,10 +846,16 @@ class BlockChainInstance(object):
         elif "default_nodes" in self.config and bool(self.config["default_nodes"]):
             nodes = self.config["default_nodes"]
         else:
-            nodes = []
-        if isinstance(nodes, str) and nodes[0] == '[' and nodes[-1] == ']':
+            from .nodelist import NodeList
+            nodes = NodeList().get_steem_nodes()
+        if isinstance(nodes, str) and len(nodes) > 1 and nodes[0] == '[' and nodes[-1] == ']':
             nodes = ast.literal_eval(nodes)
-        return nodes
+
+        if not bool(nodes):
+            from .nodelist import NodeList
+            nodes = NodeList().get_steem_nodes()
+
+        return nodes        
 
     def move_current_node_to_front(self):
         """Returns the default node list, until the first entry
