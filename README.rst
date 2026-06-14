@@ -3,6 +3,59 @@ ccsteem
 
 ccsteem is a Steem-focused Python SDK forked from beem.
 
+Current Release
+---------------
+
+**ccsteem v0.1.0**
+
+Steem-focused fork of beem with updated RPC nodes and improved compatibility for modern Linux systems.
+
+Key improvements:
+
+* Updated default Steem RPC node list
+* Automatic fallback to working Steem nodes
+* RIPEMD160 compatibility for modern OpenSSL versions
+* Steem() works without manually specifying a node
+* Steem-focused test suite updates
+
+Default RPC Nodes
+-----------------
+
+* https://api.campingclub.cc
+* https://rpc.campingclub.cc
+* https://api.moecki.online
+* https://api.pennsif.net
+
+Compatibility
+-------------
+
+ccsteem intentionally keeps the original Python package names::
+
+    from beem import Steem
+    from beem.account import Account
+
+This allows existing projects such as SteemMaxim and SteemRewarding to run without code changes.
+
+Test Status
+-----------
+
+Successfully verified:
+
+* NodeList
+* Steem
+* Account
+* Block
+* Blockchain
+
+68 automated tests passed during the initial ccsteem migration, including Account, Block, Blockchain and Steem core functionality.
+
+Repository
+----------
+
+`GitHub Repository <https://github.com/Visionaer3003/ccsteem>`_
+
+
+
 .. image:: https://img.shields.io/pypi/v/beem.svg
     :target: https://pypi.python.org/pypi/beem/
     :alt: Latest Version
