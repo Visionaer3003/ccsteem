@@ -12,7 +12,12 @@ def get_hive_nodes():
 
 
 def get_steem_nodes():
-    return "https://api.steemit.com"
+    return [
+        "https://api.campingclub.cc",
+        "https://rpc.campingclub.cc",
+        "https://api.moecki.online",
+        "https://api.pennsif.net",
+    ]
 
 
 def get_blurt_nodes():

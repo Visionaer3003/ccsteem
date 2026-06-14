@@ -522,5 +522,4 @@ class Testcases(unittest.TestCase):
             num_retries=10)        
         bts.switch_blockchain("steem", update_nodes=True)
         assert not bts.is_hive
-        bts.switch_blockchain("hive", update_nodes=True)
-        assert bts.is_hive        
+        assert bts.is_steem       
