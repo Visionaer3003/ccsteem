@@ -1,8 +1,7 @@
-beem - Unofficial Python Library for HIVE and STEEM
-===================================================
+ccsteem
+=======
 
-beem is an unofficial python library for steem and HIVE, which is created new from scratch from `python-bitshares`_
-The library name is derived from a beam machine, similar to the analogy between steem and steam. beem includes `python-graphenelib`_.
+ccsteem is a Steem-focused Python SDK forked from beem.
 
 .. image:: https://img.shields.io/pypi/v/beem.svg
     :target: https://pypi.python.org/pypi/beem/
