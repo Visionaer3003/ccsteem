@@ -39,189 +39,37 @@ class NodeList(list):
     def __init__(self):
         nodes = [
             {
-                "url": "https://api.steemit.com",
-                "version": "0.20.2",
+                "url": "https://api.campingclub.cc",
+                "version": "0.23.0",
+                "type": "appbase",
+                "owner": "campingclub",
+                "hive": False,
+                "score": 100
+            },
+            {
+                "url": "https://api.pennsif.net/",
+                "version": "0.23.0",
+                "type": "appbase",
+                "owner": "campingclub",
+                "hive": False,
+                "score": 95
+            },
+            {
+                "url": "https://rpc.campingclub.cc",
+                "version": "0.23.0",
+                "type": "appbase",
+                "owner": "campingclub",
+                "hive": False,
+                "score": 90
+            },
+            {
+                "url": "https://api.moecki.online",
+                "version": "0.23.0",
                 "type": "appbase",
                 "owner": "steemit",
                 "hive": False,
                 "score": 50
             },
-            {
-                "url": "https://api.justyy.com",
-                "version": "0.20.2",
-                "type": "appbase",
-                "owner": "justyy",
-                "hive": False,
-                "score": 20
-            },
-            {
-                "url": "https://api.steemdb.online",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "steem_supporter",
-                "hive": False,
-                "score": 20
-            },
-            {
-                "url": "https://api.steem.buzz",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "ericet",
-                "hive": False,
-                "score": 20
-            },
-            {
-                "url": "https://api.steem.buzz",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "ericet",
-                "hive": False,
-                "score": 20
-            },
-            {
-                "url": "https://anyx.io",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "anyx",
-                "hive": True,
-                "score": 50
-            },
-            {
-                "url": "https://hive-test-beeabode.roelandp.nl",
-                "version": "0.23.0",
-                "type": "testnet",
-                "owner": "roelandp",
-                "hive": True,
-                "score": 5
-            },
-            {
-                "url": "https://api.hivekings.com",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "drakos",
-                "hive": True,
-                "score": 50
-            },
-            {
-                "url": "https://api.hive.blog",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "hive",
-                "hive": True,
-                "score": 80
-            },
-            {
-                "url": "https://api.openhive.network",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "gtg",
-                "hive": True,
-                "score": 50
-            },
-            {
-                "url": "https://techcoderx.com",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "techcoderx",
-                "hive": True,
-                "score": 10
-            },
-            {
-                "url": "https://steem.61bts.com",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "ety001",
-                "hive": False,
-                "score": 10
-            },
-            {
-                "url": "https://cn.steems.top",
-                "version": "0.22.5",
-                "type": "appbase",
-                "owner": "maiyude",
-                "hive": False,
-                "score": 10
-            },
-            {
-                "url": "https://rpc.ecency.com",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "good-karma",
-                "hive": True,
-                "score": 10
-            },
-            {
-                "url": "https://hived.privex.io",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "someguy123",
-                "hive": True,
-                "score": 10
-            },
-            {
-                "url": "https://api.pharesim.me",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "pharesim",
-                "hive": True,
-                "score": 10                
-            },
-            {
-                "url": "https://rpc.ausbit.dev",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "ausbitbank",
-                "hive": True,
-                "score": 50                
-            },
-            {
-                "url": "https://hive.roelandp.nl",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "roelandp",
-                "hive": True,
-                "score": 50                
-            },
-            {
-                "url": "https://api.c0ff33a.uk",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "c0ff33a",
-                "hive": True,
-                "score": 40                
-            },
-            {
-                "url": "https://api.deathwing.me",
-                "version": "0.23.0",
-                "type": "appbase",
-                "owner": "deathwing",
-                "hive": True,
-                "score": 40                
-            },
-            {
-                "url": "https://hive-api.arcange.eu",
-                "version": "1.24.2",
-                "type": "appbase",
-                "owner": "arcange",
-                "hive": True,
-                "score": 40                   
-            },
-            {
-                "url": "https://fin.hive.3speak.co",
-                "version": "1.24.2",
-                "type": "appbase",
-                "owner": "3speak",
-                "hive": True,
-                "score": 40                   
-            },
-            {
-                "url": "https://hived.emre.sh",
-                "version": "1.24.2",
-                "type": "appbase",
-                "owner": "emrebeyler",
-                "hive": True,
-                "score": 40                   
-            }            
         ]
         super(NodeList, self).__init__(nodes)
 
