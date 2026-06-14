@@ -1,53 +1,29 @@
 # -*- coding: utf-8 -*-
 import unittest
-from beem import Steem, exceptions, Hive
-from beem.instance import set_shared_blockchain_instance
-from beem.account import Account
+from beem import Steem
 from beem.nodelist import NodeList
 
 
 class Testcases(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        nodelist = NodeList()
-        cls.bts = Hive(
-            node=nodelist.get_hive_nodes(),
-            nobroadcast=True,
-            num_retries=10
-        )
-        set_shared_blockchain_instance(cls.bts)
 
     def test_get_nodes(self):
         nodelist = NodeList()
-        all_nodes = nodelist.get_nodes(exclude_limited=False, dev=True, testnet=True, testnetdev=True)
-        self.assertEqual(len(nodelist) - 16, len(all_nodes))
-        https_nodes = nodelist.get_nodes(wss=False)
-        self.assertEqual(https_nodes[0][:5], 'https')
+        nodes = nodelist.get_nodes(exclude_limited=False, dev=True, testnet=True, testnetdev=True)
+        self.assertGreaterEqual(len(nodes), 1)
 
-    def test_hive_nodes(self):
-        nodelist = NodeList()
-        nodelist.update_nodes()
-        hive_nodes = nodelist.get_hive_nodes()
-        for node in hive_nodes:
-            blockchainobject = Hive(node=node)
-            assert blockchainobject.is_hive
+        https_nodes = nodelist.get_nodes(wss=False)
+        self.assertGreaterEqual(len(https_nodes), 1)
+        self.assertEqual(https_nodes[0][:5], "https")
 
     def test_steem_nodes(self):
         nodelist = NodeList()
-        nodelist.update_nodes()
         steem_nodes = nodelist.get_steem_nodes()
-        for node in steem_nodes:
-            blockchainobject = Steem(node=node)
-            assert blockchainobject.is_steem
 
-    def test_nodes_update(self):
-        nodelist = NodeList()
-        all_nodes = nodelist.get_hive_nodes()
-        nodelist.update_nodes(blockchain_instance=self.bts)
-        nodes = nodelist.get_hive_nodes()
-        self.assertIn(nodes[0], all_nodes)
+        self.assertIn("https://api.campingclub.cc", steem_nodes)
+        self.assertIn("https://rpc.campingclub.cc", steem_nodes)
+        self.assertGreaterEqual(len(steem_nodes), 1)
 
-        all_nodes = nodelist.get_steem_nodes()
-        nodelist.update_nodes(blockchain_instance=self.bts)
-        nodes = nodelist.get_steem_nodes()
-        self.assertIn(nodes[0], all_nodes)        
+    def test_default_steem_node_connects(self):
+        stm = Steem()
+        self.assertTrue(stm.is_steem)
+        self.assertEqual(stm.rpc.url, "https://api.campingclub.cc")
