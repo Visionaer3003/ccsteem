@@ -135,9 +135,15 @@ def base58encode(hexstring):
 
 
 def ripemd160(s):
-    ripemd160 = hashlib.new('ripemd160')
-    ripemd160.update(unhexlify(s))
-    return ripemd160.digest()
+    try:
+        ripemd160 = hashlib.new('ripemd160')
+        ripemd160.update(unhexlify(s))
+        return ripemd160.digest()
+    except ValueError:
+        from Crypto.Hash import RIPEMD160
+        h = RIPEMD160.new()
+        h.update(unhexlify(s))
+        return h.digest()
 
 def doublesha256(s):
     return hashlib.sha256(hashlib.sha256(unhexlify(s)).digest()).digest()
