@@ -163,7 +163,7 @@ class Comment(BlockchainObject):
                 elif self.api == "database":
                     content =self.blockchain.rpc.list_comments({"start": [author, permlink], "limit": 1, "order": "by_permlink"}, api="database")
                 elif self.api == "bridge":
-                    content = self.blockchain.rpc.get_post({"author": author, "permlink": permlink, "observer": self.observer}, api="bridge")
+                    content = self.blockchain.rpc.get_content(author, permlink, api="condenser")
                 elif self.api == "condenser":
                     content = self.blockchain.rpc.get_content(author, permlink, api="condenser")
                 else:
