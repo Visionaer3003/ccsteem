@@ -1,3 +1,4 @@
+from decimal import Decimal
 from .utils import HiveEngineFormatter
 
 
@@ -25,14 +26,14 @@ class HiveEngineMarket:
         return self._broadcast(account, "buy", {
             "symbol": symbol,
             "quantity": self.formatter.format_quantity(symbol, quantity),
-            "price": f"{float(price):.8f}"
+            "price": f"{Decimal(str(price)):.8f}"
         })
 
     def sell(self, account, symbol, quantity, price):
         return self._broadcast(account, "sell", {
             "symbol": symbol,
             "quantity": self.formatter.format_quantity(symbol, quantity),
-            "price": f"{float(price):.8f}"
+            "price": f"{Decimal(str(price)):.8f}"
         })
 
     def cancel(self, account, order_id, order_type):

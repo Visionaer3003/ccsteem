@@ -1,3 +1,4 @@
+from decimal import Decimal
 from .orders import HiveEngineOrders
 from .utils import HiveEngineFormatter
 
@@ -37,6 +38,6 @@ class HiveEngineManager:
             "new_buy": self._custom_json_payload("buy", {
                 "symbol": symbol,
                 "quantity": self.formatter.format_quantity(symbol, quantity),
-                "price": f"{float(new_price):.8f}"
+                "price": f"{Decimal(str(new_price)):.8f}"
             })
         }
