@@ -6,6 +6,8 @@ from .orderbook import HiveEngineOrderBook
 from .orders import HiveEngineOrders
 from .manager import HiveEngineManager
 from .history import HiveEngineHistory
+from .config import TradingConfig
+from .advisor import TradingAdvisor
 
 __all__ = [
     "HiveEngineAPI",
@@ -16,4 +18,6 @@ __all__ = [
     "HiveEngineOrders",
     "HiveEngineManager",
     "HiveEngineHistory",
+    "TradingConfig",
+    "TradingAdvisor",
 ]
