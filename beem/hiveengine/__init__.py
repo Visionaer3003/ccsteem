@@ -5,6 +5,7 @@ from .wallet import HiveEngineWallet
 from .orderbook import HiveEngineOrderBook
 from .orders import HiveEngineOrders
 from .manager import HiveEngineManager
+from .history import HiveEngineHistory
 
 __all__ = [
     "HiveEngineAPI",
@@ -14,4 +15,5 @@ __all__ = [
     "HiveEngineOrderBook",
     "HiveEngineOrders",
     "HiveEngineManager",
+    "HiveEngineHistory",
 ]
