@@ -1,4 +1,5 @@
 from .orders import HiveEngineOrders
+from .utils import HiveEngineFormatter
 
 
 class HiveEngineManager:
@@ -7,6 +8,7 @@ class HiveEngineManager:
     def __init__(self, hive):
         self.hive = hive
         self.orders = HiveEngineOrders()
+        self.formatter = HiveEngineFormatter()
 
     def _custom_json_payload(self, action, payload):
         return {
@@ -34,7 +36,7 @@ class HiveEngineManager:
             }),
             "new_buy": self._custom_json_payload("buy", {
                 "symbol": symbol,
-                "quantity": f"{float(quantity):.8f}",
+                "quantity": self.formatter.format_quantity(symbol, quantity),
                 "price": f"{float(new_price):.8f}"
             })
         }

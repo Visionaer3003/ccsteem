@@ -1,8 +1,12 @@
+from .utils import HiveEngineFormatter
+
+
 class HiveEngineMarket:
     CUSTOM_JSON_ID = "ssc-mainnet-hive"
 
     def __init__(self, hive):
         self.hive = hive
+        self.formatter = HiveEngineFormatter()
 
     def _broadcast(self, account, contract_action, payload):
         data = {
@@ -20,14 +24,14 @@ class HiveEngineMarket:
     def buy(self, account, symbol, quantity, price):
         return self._broadcast(account, "buy", {
             "symbol": symbol,
-            "quantity": f"{float(quantity):.8f}",
+            "quantity": self.formatter.format_quantity(symbol, quantity),
             "price": f"{float(price):.8f}"
         })
 
     def sell(self, account, symbol, quantity, price):
         return self._broadcast(account, "sell", {
             "symbol": symbol,
-            "quantity": f"{float(quantity):.8f}",
+            "quantity": self.formatter.format_quantity(symbol, quantity),
             "price": f"{float(price):.8f}"
         })
 
