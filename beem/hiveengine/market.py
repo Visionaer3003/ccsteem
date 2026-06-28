@@ -19,7 +19,7 @@ class HiveEngineMarket:
         return self.hive.custom_json(
             self.CUSTOM_JSON_ID,
             data,
-            required_posting_auths=[account]
+            required_auths=[account]
         )
 
     def buy(self, account, symbol, quantity, price):
@@ -39,5 +39,5 @@ class HiveEngineMarket:
     def cancel(self, account, order_id, order_type):
         return self._broadcast(account, "cancel", {
             "type": order_type,
-            "id": str(order_id)
+            "id": int(order_id)
         })

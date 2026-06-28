@@ -20,4 +20,7 @@ __all__ = [
     "HiveEngineHistory",
     "TradingConfig",
     "TradingAdvisor",
+    "TradingBot",
 ]
+
+from .tradingbot import TradingBot
